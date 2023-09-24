@@ -24,13 +24,13 @@ namespace RhinoPluginTester.View.Forms
 
         internal void UpdateLogs(string logMessage)
         {
-            rtbLogs.Text += $"\n[{DateTime.Now.ToShortTimeString()}] " + logMessage;
+            rtbLogs.AppendText($"\n[{DateTime.Now.ToShortTimeString()}] {logMessage}");
             this.Refresh();
         }
 
         private void FormTestLogs_Load(object sender, EventArgs e)
         {
-
+            rtbLogs.HideSelection = false;
         }
     }
 }
