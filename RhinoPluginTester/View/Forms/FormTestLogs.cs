@@ -16,5 +16,21 @@ namespace RhinoPluginTester.View.Forms
         {
             InitializeComponent();
         }
+
+        internal void SetAsCompleted()
+        {
+            lblStatus.Text = "All tests applied.";
+        }
+
+        internal void UpdateLogs(string logMessage)
+        {
+            rtbLogs.Text += $"\n[{DateTime.Now.ToShortTimeString()}] " + logMessage;
+            this.Refresh();
+        }
+
+        private void FormTestLogs_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

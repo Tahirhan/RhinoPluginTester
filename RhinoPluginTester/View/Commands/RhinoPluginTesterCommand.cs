@@ -11,6 +11,7 @@ using RhinoPluginTester.View.Forms;
 
 namespace RhinoPluginTester
 {
+    [CommandStyle(Style.ScriptRunner)]
     public class RhinoPluginTesterCommand : Command
     {
         public RhinoPluginTesterCommand()
@@ -51,6 +52,13 @@ namespace RhinoPluginTester
         private void RunTests(List<string> cmds)
         {
             if (cmds.Count == 0) return;
+
+            FormTestLogs form = new FormTestLogs();
+            form.BringToFront();
+            form.TopMost = true;
+            form.Show();
+
+            csTestHandler.RunTests(form, cmds);
         }
 
         private List<string> GetCommandsToTest(string pluginGuid)
